@@ -45,6 +45,19 @@ var max = 0;
 		sum = 0;
 		avg = 0;
 
+		var message;
+	    message = document.getElementById("message");
+	   	message.innerHTML = ""; 
+
+	   	try { 
+	       	if(numbers.length == 0) throw "No number was introduced yet";
+	    }
+	    catch(err) {
+	        message.innerHTML = err;
+	        document.getElementById("txtNumber").value = "";
+	        return false;
+	   	}
+
 		var index = numbers.length - 1;
 		var total = numbers.length;	
 		
