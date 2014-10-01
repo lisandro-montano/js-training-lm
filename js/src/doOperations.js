@@ -1,42 +1,42 @@
 var max = 0;
-	var min = 99999999999;
-	var sum = 0;
-	var avg = 0;
-  	var numbers = [];
+var min = 99999999999;
+var sum = 0;
+var avg = 0;
+var numbers = [];
 
   	function addNumber(){
-  		var message;
-    	var number = document.getElementById("txtNumber").value;
-    	message = document.getElementById("message");
-    	message.innerHTML = ""; 
+ 		var message;
+   	var number = document.getElementById("txtNumber").value;
+   	message = document.getElementById("message");
+   	message.innerHTML = ""; 
 
-    	try { 
-        	if(number == "") throw "is Empty";
-        	if(isNaN(number)) throw "not a number";
-	    }
-	    catch(err) {
-	        message.innerHTML = "Input " + err;
-	        document.getElementById("txtNumber").value = "";
-	        return false;
-    	}
+   	try { 
+       	if(number == "") throw "is Empty";
+       	if(isNaN(number)) throw "not a number";
+    }
+    catch(err) {
+        message.innerHTML = "Input " + err;
+        document.getElementById("txtNumber").value = "";
+        return false;
+   	}
 
-  		numbers.push(number);
-  		var cell = document.getElementById("numTable").insertRow("1");
-  		cell.innerHTML = number;
-  		document.getElementById("txtNumber").value = "";
+ 		numbers.push(number);
+ 		var cell = document.getElementById("numTable").insertRow("1");
+ 		cell.innerHTML = number;
+ 		document.getElementById("txtNumber").value = "";
   		
-  	};
+ 	};
 
-  	function clearNumbers(){
-  		numbers=[];
-  		document.getElementById("txtNumber").value = "";
-  		document.getElementById("numTable").innerHTML = ""; 
-  		var title = document.getElementById("numTable").insertRow("0");
-  		title.innerHTML = "<th>Numbers</th>";
-  		document.getElementById("statistics").innerHTML = ""; 
-  		var title2 = document.getElementById("statistics").insertRow("0");
-  		title2.innerHTML = "<th>Statistics</th>";
-  	};
+ 	function clearNumbers(){
+ 		numbers=[];
+ 		document.getElementById("txtNumber").value = "";
+ 		document.getElementById("numTable").innerHTML = ""; 
+ 		var title = document.getElementById("numTable").insertRow("0");
+ 		title.innerHTML = "<th>Numbers</th>";
+ 		document.getElementById("statistics").innerHTML = ""; 
+ 		var title2 = document.getElementById("statistics").insertRow("0");
+ 		title2.innerHTML = "<th>Statistics</th>";
+ 	};
 
 	function doOperations() {
 
