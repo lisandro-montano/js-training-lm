@@ -7,6 +7,7 @@ var option2 = null;
 var cell1 = [];
 var pairsFound = 0;
 var size = 0;
+var attempts = 0;
 
 function newGame() {
 
@@ -15,6 +16,8 @@ function newGame() {
 	option1 = null;
 	option2 = null;
 	pairsFound = 0;
+	attempts = 0;
+	document.getElementById("attempts").innerHTML = attempts;
 
 	message = document.getElementById("message");
    	message.innerHTML = ""; 
@@ -35,8 +38,8 @@ function newGame() {
 	gameArray = newGameArray(size);
 	gameArray = shuffleArray(gameArray);
 	gameArray = convertArray(gameArray,size);
-	console.log(gameArray, verificationArray);
 	drawTable(gameArray, size);
+	document.getElementById("tableSize").value = "";
 	
 	return gameArray;
 
@@ -57,13 +60,13 @@ var select = function(row,column){
 			option1 = selectedCell;
 			cell1 = [row,column];
 			success = true;
-			console.log("You selected" + option1);
+			console.log("You selected: " + option1);
 		}
 		else if ((option2 == null) && !(cell1[0] == row && cell1[1] == column))  {
 
 			option2 = selectedCell;
 			success = true;
-			console.log("You selected" + option2);
+			console.log("You selected: " + option2);
 		}
 		else console.log ("You already selected two cells or already selected that cell");
 
@@ -78,14 +81,20 @@ var select = function(row,column){
 				option2 = null;
 				cell1 = [];
 				pairsFound++;
+				attempts++;
+				document.getElementById("attempts").innerHTML = attempts;
 				drawTable(gameArray, size);
-				if (pairsFound == ((size*size)/2) )
+				if (pairsFound == ((size*size)/2) ) {
 					console.log("Congrats. You finished the game")
+					confirm("Congratulations. You finished the game in " + attempts + " attempts")
+				}
 			}
 			else {
 				option1 = null;
 				option2 = null;
 				cell1 = [];
+				attempts++;
+				document.getElementById("attempts").innerHTML = attempts;
 				setTimeout('drawTable(gameArray, size)', 1500);
 			}
 		}
