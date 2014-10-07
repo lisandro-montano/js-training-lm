@@ -36,4 +36,17 @@
     text-align:center;
     padding:5px; 
 }
+
+#game, td, th {
+    border: 1px solid green;
+}
+
+td {
+    background-color: #FF9900;
+    color: black;
+    height: 50px;
+    width: 50px;
+    vertical-align: center;
+}
+
 </style>
