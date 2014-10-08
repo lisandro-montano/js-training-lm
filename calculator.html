@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+  <link href="css/stylesheet.css" rel="stylesheet">
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <script src="js/src/calculator.js"></script>  
+</head>
+
+<body>
+	<div id = "header">
+	  	<h1>Calculator</h1>
+	</div>
+
+	<div id = "nav">
+			
+	</div>
+
+	<div id = "section">
+		<input id="screen" onkeypress="pressKey(event)" type="text" name="screen" size="40" readOnly="true" autofocus="true">
+		<table class="calculator">
+			<tr>
+				<td id="7" onclick="clickKey('7')" align="center">7</td>
+				<td id="8" onclick="clickKey('8')" align="center">8</td>
+				<td id="9" onclick="clickKey('9')" align="center">9</td>
+				<td id="/" onclick="clickKey('/')" align="center">/</td>
+			</tr>
+			<tr>
+				<td id="4" onclick="clickKey('4')" align="center">4</td>
+				<td id="5" onclick="clickKey('5')" align="center">5</td>
+				<td id="6" onclick="clickKey('6')" align="center">6</td>
+				<td id="X" onclick="clickKey('*')" align="center">X</td>
+			</tr>
+			<tr>
+				<td id="1" onclick="clickKey('1')" align="center">1</td>
+				<td id="2" onclick="clickKey('2')" align="center">2</td>
+				<td id="3" onclick="clickKey('3')" align="center">3</td>
+				<td id="-" onclick="clickKey('-')" align="center">-</td>
+			</tr>
+			<tr>
+				<td id="0" onclick="clickKey('0')" align="center">0</td>
+				<td id="." onclick="clickKey('.')" align="center">.</td>
+				<td id="=" onclick="clickKey('=')" align="center">=</td>
+				<td id="+" onclick="clickKey('+')" align="center">+</td>
+			</tr>
+		</table>	
+	</div>
+
+	<div id = "footer">
+		Email: lisandro.montano@jalasoft.com
+	</div>
+</body>
+</html>

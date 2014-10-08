@@ -49,4 +49,12 @@ td {
     vertical-align: center;
 }
 
+table.calculator td {
+    background-color: #808080;
+    color: white;
+    height: 50px;
+    width: 50px;
+    vertical-align: center;
+}
+
 </style>

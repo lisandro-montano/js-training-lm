@@ -98,7 +98,7 @@ var select = function(row,column){
 
 function drawTable(array,size) {
 
-	var section1 = '<table border="1">';
+	var section1 = "<table>";
 	var section3 = "</table>";
 	var section2 = "";
 	var content = "?";
