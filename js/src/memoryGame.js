@@ -107,7 +107,7 @@ function drawTable(array,size) {
 	var section1 = '<table border="1">';
 	var section3 = "</table>";
 	var section2 = "";
-	var content = ":p";
+	var content = "?";
 
 	for(i = 0; i < size; i++){
 
