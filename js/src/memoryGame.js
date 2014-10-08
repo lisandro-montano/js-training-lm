@@ -40,7 +40,6 @@ function newGame() {
 	gameArray = convertArray(gameArray,size);
 	drawTable(gameArray, size);
 	document.getElementById("tableSize").value = "";
-	
 	return gameArray;
 
 };
@@ -77,26 +76,21 @@ var select = function(row,column){
 				console.log("Congratulations, you found a pair")
 				verificationArray[cell1[0]][cell1[1]] = 1;
 				verificationArray[row][column] = 1;
-				option1 = null;
-				option2 = null;
-				cell1 = [];
 				pairsFound++;
-				attempts++;
-				document.getElementById("attempts").innerHTML = attempts;
 				drawTable(gameArray, size);
 				if (pairsFound == ((size*size)/2) ) {
 					console.log("Congrats. You finished the game")
 					confirm("Congratulations. You finished the game in " + attempts + " attempts")
 				}
 			}
-			else {
-				option1 = null;
-				option2 = null;
-				cell1 = [];
-				attempts++;
-				document.getElementById("attempts").innerHTML = attempts;
+			else {	
 				setTimeout('drawTable(gameArray, size)', 1500);
 			}
+			option1 = null;
+			option2 = null;
+			cell1 = [];
+			attempts++;
+			document.getElementById("attempts").innerHTML = attempts;
 		}
 	}
 	return success;
