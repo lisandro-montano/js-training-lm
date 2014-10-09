@@ -71,6 +71,7 @@ var select = function(row,column){
 
 		if ((option1 != null) && (option2!=null)){
 
+			attempts++;
 			if (option1 == option2){
 
 				console.log("Congratulations, you found a pair")
@@ -89,7 +90,6 @@ var select = function(row,column){
 			option1 = null;
 			option2 = null;
 			cell1 = [];
-			attempts++;
 			document.getElementById("attempts").innerHTML = attempts;
 		}
 	}
