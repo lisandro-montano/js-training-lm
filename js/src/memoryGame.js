@@ -1,4 +1,16 @@
-var lettersArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "@", "#", "$", "%", "&", "*"];
+/*
+
+Define variables that will be used in the game:
+
+- tableDefaultSize will be the game default size if not selected. Default value will be 4
+- gameArray and verificationArray will be used for each game that is created
+- option1 and option2 will hold each selection the user does
+- cell1 will hold the location of option1
+- size will hold the table size for the game
+- pairsFound and attempts are counters that will hold the statistics of each game
+
+*/
+
 var tableDefaultSize = 4;
 var gameArray = [];
 var verificationArray = [];
@@ -9,7 +21,9 @@ var pairsFound = 0;
 var size = 0;
 var attempts = 0;
 
-function newGame() {
+// function newGame() will reset all variables and create a new matrix for the game. If no value is selected, it'll use default one
+
+var newGame = function() {
 
 	size = parseInt(document.getElementById("tableSize").value);
 	var message;
@@ -27,7 +41,7 @@ function newGame() {
 
 	try { 
        	if((size % 2) !=0) throw "Please select an even number";
-       	if((size > 8) || (size < 2)) throw "Please select an even number between 2 and 8";
+       	if((size > 10) || (size < 2)) throw "Please select an even number between 2 and 10";
     }
     catch(err) {
         message.innerHTML = err;
@@ -43,6 +57,8 @@ function newGame() {
 	return gameArray;
 
 };
+
+// select function will handle all user selections and will compare selected values. It also handles the counters specific to each game
 
 var select = function(row,column){
 
@@ -72,6 +88,7 @@ var select = function(row,column){
 		if ((option1 != null) && (option2!=null)){
 
 			attempts++;
+			document.getElementById("attempts").innerHTML = attempts;
 			if (option1 == option2){
 
 				console.log("Congratulations, you found a pair")
@@ -81,7 +98,7 @@ var select = function(row,column){
 				drawTable(gameArray, size);
 				if (pairsFound == ((size*size)/2) ) {
 					console.log("Congrats. You finished the game")
-					confirm("Congratulations. You finished the game in " + attempts + " attempts")
+					alert("Congratulations. You finished the game in " + attempts + " attempts")
 				}
 			}
 			else {	
@@ -90,11 +107,12 @@ var select = function(row,column){
 			option1 = null;
 			option2 = null;
 			cell1 = [];
-			document.getElementById("attempts").innerHTML = attempts;
 		}
 	}
 	return success;
 }
+
+// drawTable will create the html object to display it in the page
 
 function drawTable(array,size) {
 
@@ -122,22 +140,26 @@ function drawTable(array,size) {
 	gameDraw.innerHTML = game
 };
 
+// newGameArray will create a simple array with all the options depending on the size selected
+
 var newGameArray = function(size) {
 
 	var currentGameArray = [];
 	
 	var lettersGame = (size * size)/2;
-	for (var i = 0; i < lettersGame; i++) {
+	for (var i = 65; i < (65 + lettersGame); i++) {
 
-		currentGameArray.push(lettersArray[i]);
-		currentGameArray.push(lettersArray[i]);
+		currentGameArray.push(String.fromCharCode(i));
+		currentGameArray.push(String.fromCharCode(i));
 	}
 	
 	return currentGameArray;
 };
 
+// suffleArray will mix all options from newGameArray
+
 var shuffleArray = function (array) {
-  var currentIndex = array.length, temporaryValue, randomIndex ;
+  var currentIndex = array.length, temporaryValue, randomIndex;
 
   // While there remain elements to shuffle...
   while (0 !== currentIndex) {
@@ -154,6 +176,8 @@ var shuffleArray = function (array) {
 
   return array;
 };
+
+// convertArray will convert the simple arrray in a two dimension array in order to match the table that will be drawn
 
 var convertArray = function(array, size) {
 
